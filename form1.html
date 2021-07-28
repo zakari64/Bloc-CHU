@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.0.0/css/all.min.css">
+    <link rel="stylesheet" href="dashboard.css">
+
+    
+</head>
+
+<body>
+    <div class="container">
+        <div class="navig" >
+            <ul>
+                
+                   <a href="#"><span class="icon">
+                      <span class="title"><img class ="logo" src="/imgs/CHU-Mohammed-VI-dOujda.jpg"></span> 
+
+                   </a>
+                    
+                
+                <li>
+                    <a href="dashboard.html">
+                        <span class="icon"><i class="fas fa-table"></i></span>
+                        <span class="title">Demandes</span>
+                    </a>
+                    
+                </li>
+                <li>
+                    <a href="patients.html">
+                        <span class="icon"><i class="fas fa-user-injured"></i></span>
+                        <span class="title">Patients</span>
+                    </a>
+                    
+                </li>
+                <li>
+                    <a href="service.html">
+                        <span class="icon"><i class="fas fa-procedures"></i></span>
+                        <span class="title">Service Hospitalier</span>
+                    </a>
+                    
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><i class="fas fa-sign-out-alt"></i></span>
+                        <span class="title">Déconnexion</span>
+                    </a>
+                   
+                </li>
+                
+            </ul>
+        </div>
+        <div class="mainc">
+            <div class="navbar">
+                <div class="toggle" onclick="toggleMenu();">
+                    <i class="fa fa-bars"></i>
+                </div>
+                <div class="search">
+                    <label>
+                        <input type="text" placeholder="Rechercher ici..">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                    </label>
+                </div>
+                <div class="user">
+                    <img class="logo2" src="/imgs/avatar3.jpg">
+                </div>
+            </div>
+            <div class="liste-patients">
+
+              <div class="tab1">
+                <table class="tablo"id="table1" border="1">
+                    <thead>
+                        <tr>
+                            <th>Patients hospitalisés</th>
+                            
+                            <th>Select</th>
+                        </tr>
+                    </thead>
+                   <tbody>
+                    <tr>
+                        <td>Rachid Zirar</td>
+                       
+                        <td><input type="checkbox" name="check-tab1"></td>
+                    </tr>
+                     <tr>
+                        <td>Rachid Zirar</td>
+                       
+                        <td><input type="checkbox" name="check-tab1"></td>
+                    </tr>
+                    <tr>
+                        <td>Rachid Zirar</td>
+                       
+                        <td><input type="checkbox" name="check-tab1"></td>
+                    </tr>
+                     <tr>
+                        <td>Rachid Zirar</td>
+                       
+                        <td><input type="checkbox" name="check-tab1"></td>
+                    </tr>
+                     <tr>
+                        <td>Rachid Zirar</td>
+                     
+                        <td><input type="checkbox" name="check-tab1"></td>
+                    </tr>
+                     <tr>
+                        <td>Rachid Zirar</td>
+                        <td><input type="checkbox" name="check-tab1"></td>
+                    </tr>
+                     <tr>
+                        <td>Rachid Zirar</td>
+                        
+                        <td><input type="checkbox" name="check-tab1"></td>
+                    </tr>
+                     <tr>
+                        <td>Rachid Zirar</td>
+                       
+                        <td><input type="checkbox" name="check-tab1"></td>
+                    </tr>
+                     <tr>
+                        <td>Rachid Zirar</td>
+                        <td><input type="checkbox" name="check-tab1"></td>
+                    </tr>
+                     <tr>
+                        <td>Rachid Zirar</td>
+                      
+                        <td><input type="checkbox" name="check-tab1"></td>
+                    </tr>
+                   </tbody>
+                   
+                </table>
+            </div>
+            
+            <div class="btn-gliss">
+                <button class ="btn1"onclick="tab1_To_tab2();"><i class="fas fa-chevron-circle-right"></i></button>
+                <button class ="btn2" onclick="tab2_To_tab1();"><i class="fas fa-chevron-circle-left"></i></button>
+            </div>
+            
+            <div class="tab2">
+                <table class="tablo2" id="table2" border="1">
+                    <thead>
+                        <tr>
+                            <th>Patients à opérer</th>
+                           
+                            <th>Select</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                    </tbody>
+                    
+                </table>   
+            </div>
+        </div>
+        <script>
+            function toggleMenu() {
+                let toggle = document.querySelector('.toggle');
+                let navig = document.querySelector('.navig');
+                let mainc = document.querySelector('.mainc');
+                toggle.classList.toggle('active');
+                navig.classList.toggle('active');
+                mainc.classList.toggle('active');
+            }
+        </script>
+        
+        <script>
+            
+            function tab1_To_tab2()
+            {
+                var table1 = document.getElementById("table1"),
+                    table2 = document.getElementById("table2"),
+                    checkboxes = document.getElementsByName("check-tab1");
+            console.log("Val1 = " + checkboxes.length);
+                 for(var i = 0; i < checkboxes.length; i++)
+                     if(checkboxes[i].checked)
+                        {
+                            // create new row and cells
+                            var newRow = table2.insertRow(table2.length),
+                                cell1 = newRow.insertCell(0),
+                                cell2 = newRow.insertCell(1);
+                               
+                            // add values to the cells
+                            cell1.innerHTML = table1.rows[i+1].cells[0].innerHTML;
+                            cell2.innerHTML = "<input type='checkbox' name='check-tab2'>";
+                           
+                            // remove the transfered rows from the first table [table1]
+                            var index = table1.rows[i+1].rowIndex;
+                            table1.deleteRow(index);
+                            // we have deleted some rows so the checkboxes.length have changed
+                            // so we have to decrement the value of i
+                            i--;
+                           console.log(checkboxes.length);
+                        }
+            }
+            
+            
+            function tab2_To_tab1()
+            {
+                var table1 = document.getElementById("table1"),
+                    table2 = document.getElementById("table2"),
+                    checkboxes = document.getElementsByName("check-tab2");
+            console.log("Val1 = " + checkboxes.length);
+                 for(var i = 0; i < checkboxes.length; i++)
+                     if(checkboxes[i].checked)
+                        {
+                            // create new row and cells
+                            var newRow = table1.insertRow(table1.length),
+                                cell1 = newRow.insertCell(0),
+                                cell2 = newRow.insertCell(1);
+                                
+                            // add values to the cells
+                            cell1.innerHTML = table2.rows[i+1].cells[0].innerHTML;
+                            
+                            cell2.innerHTML = "<input type='checkbox' name='check-tab1'>";
+                           
+                            // remove the transfered rows from the second table [table2]
+                            var index = table2.rows[i+1].rowIndex;
+                            table2.deleteRow(index);
+                            // we have deleted some rows so the checkboxes.length have changed
+                            // so we have to decrement the value of i
+                            i--;
+                           console.log(checkboxes.length);
+                        }
+            }
+            
+        </script>   
+
+   
+    
+</body>
+</html>

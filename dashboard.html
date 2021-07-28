@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.0.0/css/all.min.css">
+    <link rel="stylesheet" href="dashboard.css">
+
+    
+</head>
+
+<body>
+    <div class="container">
+        <div class="navig" >
+            <ul>
+                
+                   <a href="#"><span class="icon">
+                      <span class="title"><img class ="logo" src="/imgs/CHU-Mohammed-VI-dOujda.jpg"></span> 
+
+                   </a>
+                    
+                
+                <li>
+                    <a href="dashboard.html">
+                        <span class="icon"><i class="fas fa-table"></i></span>
+                        <span class="title">Demandes</span>
+                    </a>
+                    
+                </li>
+                <li>
+                    <a href="patients.html">
+                        <span class="icon"><i class="fas fa-user-injured"></i></span>
+                        <span class="title">Patients</span>
+                    </a>
+                    
+                </li>
+                <li>
+                    <a href="service.html">
+                        <span class="icon"><i class="fas fa-procedures"></i></span>
+                        <span class="title">Service Hospitalier</span>
+                    </a>
+                    
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><i class="fas fa-sign-out-alt"></i></span>
+                        <span class="title">Déconnexion</span>
+                    </a>
+                   
+                </li>
+                
+            </ul>
+        </div>
+        <div class="mainc">
+            <div class="navbar">
+                <div class="toggle" onclick="toggleMenu();">
+                    <i class="fa fa-bars"></i>
+                </div>
+                <div class="search">
+                    <label>
+                        <input type="text" placeholder="Rechercher ici..">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                    </label>
+                </div>
+                <div class="user">
+                    <img class="logo2" src="/imgs/avatar3.jpg">
+                </div>
+            </div>
+            <div class="dem-title">
+                <h1>Table des demandes</h1>
+            </div>
+            <div class="table-div">
+              <table class="content-table">
+                <thead>
+                  <tr>
+                  
+                    <th>Date d'opération</th>
+                    <th>Patients</th>
+                    <th>IPP</th>
+                    <th>Médecin</th>
+                    <th>Statut</th>
+                    <th><a href="/form1.html"><button class="add-btn" type="button">+ Nouvelle</button></a></th>
+                    <th><a href="#"><button class="add-btn" type="button">+ Details</button></a></th>
+                    <th><a href="#"><button class="add-btn" type="button">Demande d'annulation</button></a></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                   
+                    <td><input type="date" class="tdate"></td>
+                    <td>Khalid Benabdellah</td>
+                    <td>3</td>
+                    <td>Dr.Moumni</td>
+                    <td id="status1">En attente</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                  
+                    <td><input type="date" class="tdate"></td>
+                    <td>Khalid Benabdellah</td>
+                    <td>2</td>
+                    <td>Dr.Moumni</td>
+                    <td id="status2">Annulée</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                   
+                    <td><input type="date" class="tdate"></td>
+                    <td>Khalid Benabdellah</td>
+                    <td>1</td>
+                    <td>Dr.Moumni</td>
+                    <td id="status3">Effectuée</td>
+                    <td></td>
+                     <td></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                    
+                    <td><input type="date" class="tdate"></td>
+                    <td>Khalid Benabdellah</td>
+                    <td>5</td>
+                    <td>Dr.Moumni</td>
+                    <td id="status1">En attente</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                  
+                    <td><input type="date" class="tdate"></td>
+                    <td>Khalid Benabdellah</td>
+                    <td>2</td>
+                    <td>Dr.Moumni</td>
+                    <td id="status1">En attente</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    
+                    <td><input type="date" class="tdate"></td>
+                    <td>Khalid Benabdellah</td>
+                    <td>4</td>
+                    <td>Dr.Moumni</td>
+                    <td id="status1">En attente</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                   
+                    <td><input type="date" class="tdate"></td>
+                    <td>Khalid Benabdellah</td>
+                    <td>6</td>
+                    <td>Dr.Moumni</td>
+                    <td id="status3">Effectuée</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                 
+                  
+
+                </tbody>
+              </table>
+            </div>
+            
+        </div>
+        
+    </div>
+   
+    <script>
+        function toggleMenu() {
+            let toggle = document.querySelector('.toggle');
+            let navig = document.querySelector('.navig');
+            let mainc = document.querySelector('.mainc');
+            toggle.classList.toggle('active');
+            navig.classList.toggle('active');
+            mainc.classList.toggle('active');
+        }
+    </script>
+   
+    
+</body>
+</html>

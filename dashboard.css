@@ -1,0 +1,789 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+* {
+    margin : 0 ;
+    padding : 0 ;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden;
+
+}
+.container {
+    position: relative;
+    width:  100% ;
+}
+.navig {
+    position: fixed;
+    width: 300px ;
+    height : 100% ;
+    background: hsl(216, 66%, 66%);
+    transition: 0.5s;
+    overflow : hidden ;
+}
+.navig.active {
+ 
+    width: 80px ;
+}
+
+.navig ul {
+    position: absolute;
+    top : 0 ;
+    left : 0 ;
+    width : 100% ;
+
+}
+.navig ul li {
+    position: relative;
+    width: 100% ;
+    list-style: none;
+}
+.navig ul li :hover {
+    background:  rgb(12, 197, 221);
+}
+.navig ul li:nth-child(1) {
+    margin-bottom: 20px ;
+}
+.navig ul li:nth-child(1):hover {
+    background: transparent;
+}
+.navig ul li a {
+    position: relative;
+    display: block ;
+    width: 100%;
+    display: flex;
+    text-decoration: none ;
+    color : #fff ;
+}
+.navig ul li a .icon {
+    position: relative;
+    display: block;
+    min-width: 60px ;
+    height : 60px ;
+    line-height: 60px ;
+    text-align : center ;
+
+}
+
+.navig ul li a .icon .fa {
+    color : #fff ;
+    font-size : 24px ;
+
+}
+
+.navig ul li a .title {
+    position: relative;
+    display: block ;
+    padding: 0 10px ;
+    height : 60px ;
+    line-height: 60px ;
+    white-space: nowrap;
+
+}
+.logo  {
+    display: flex;
+    border-radius: 50%;
+    padding: 18px ;  
+    width : 80px ;
+    height: 80px ;
+    max-width: 100px;
+    margin: auto;
+       
+}
+.logo2 {
+    width: 40px;
+    height: 40px;
+}
+.mainc {
+    position: absolute;
+    width : calc(100% - 300px) ;
+    left : 300px ;
+    min-height: 100vh;
+    background: rgb(247, 247, 247);
+    transition: 0.5s;
+}
+.mainc.active {
+    width :calc(100% - 60px) ;
+    left : 60px ;
+}
+.mainc .navbar {
+    width: 100%;
+    background: rgb(255, 255, 255);
+    height: 60px ;
+    padding: 0 10px ;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.toggle {
+    margin-top: 45px;
+    position: relative;
+    width: 90px;
+    height : 70px ;
+    cursor: pointer;
+
+}
+.toggle::before .fa{
+    position: absolute;
+    width: 100%;
+    height: 100% ;
+    line-height: 60px ;
+    font-size: 24px;
+    text-align: center;
+    color: black ;
+}
+.search {
+    position: relative;
+    width : 400px ;
+    margin : 0 10px ;
+
+}
+.search label {
+    position: relative;
+    width: 100% ;
+
+}
+.search label input {
+    width: 100% ;
+    height: 40px ;
+    border-radius: 40px ;
+    padding : 5px 20px ;
+    padding-left: 35px ;
+    outline: none;
+    border : 1px solid grey ;
+    
+}
+.search label .fa {
+    position: absolute;
+    left:  15px;
+    top : 4px ;
+
+}
+ .user {
+     position: relative;
+     min-width: 50px ;
+     width: 0px ;
+     height : 50px ;
+     border-radius: 50% ;
+     overflow: hidden ;
+     cursor: pointer;
+
+ }
+ .user img {
+     position: absolute; 
+     top : 0 ;
+     left : 0 ;
+     width: 100% ;
+     height: 100% ;
+     object-fit: cover ;
+ }
+ .dem-title {
+    margin-top: 10px;
+    font-weight: 600;
+    text-align: center;
+    color : rgb(68, 68, 68) ;
+    padding : 20px;
+}
+
+.table-div {
+    max-width: 1200px ;
+    margin: auto;
+
+}
+
+
+/* la liste principalde des patients */
+.liste-patients {
+  position: relative;
+  display: flex;
+  max-width: 100vw;
+  background: transparent;
+}
+
+/* liste des patients hospitalisés */
+.liste-patients .tab1{
+    display: flex;
+    max-width: 400px ;
+    margin-top: 30px;
+    margin-left: 20px;
+    justify-content: left;
+    border-radius: 5px ;
+    background: transparent;
+    margin-bottom: 10px;
+    
+}
+/* Boutons pour glisser les patients vers le deux listes */
+.btn-gliss {
+    display : flex ;
+    max-width: 150px ;
+    height: 150px ;
+    margin-top: 150px;
+    margin-left: auto;
+    background-color: transparent;
+   }
+   /* bouton pour glisser a droite */
+
+   .btn-gliss .btn1 {
+       position: relative;
+       border: none;
+       display: block;
+       height : 60px ;
+       border-radius: 5px ;
+       background: hsl(216, 66%, 66%);
+       width: 80px;
+       cursor: pointer;
+   }
+
+   .btn-gliss .btn1:hover {
+       background-color: rgb(12, 197, 221) ;
+   }
+   /* bouton pour glisser a gauche */
+
+   .btn-gliss .btn2 {
+       position: relative;
+       margin-left: 1em;
+       border: none;
+       display: block;
+       height : 60px ;
+       border-radius: 5px ;
+       background: hsl(216, 66%, 66%);
+       width: 80px;
+       cursor: pointer;
+   }
+   .btn-gliss .btn2:hover {
+       background-color:rgb(12, 197, 221) ;
+   }
+/* liste des patients a opérer */
+.liste-patients .tab2{ 
+    display: flex;
+    max-width: 400px;
+    margin-top : 30px ;
+    margin-left: auto;
+    margin-right: 20px;
+    justify-content: right;
+    border-radius: 5px;
+    background: transparent;
+    margin-bottom: 10px;
+}
+/* bouton suivant */
+.btn-suiv {
+    padding: 15px;
+    margin-top: 200px ;
+    display: block ;
+    max-width: 200px;
+    margin: auto;
+}
+.btn-suiv .sv-btn {
+    width: 80%;
+    border-radius: 6px;
+    border: none;
+    height : 50px ;
+    margin-top: 100px ;
+    background:hsl(216, 66%, 66%) ;
+    cursor: pointer;
+}
+/* Tableau du form1 */
+.tablo {
+    border-collapse: collapse;
+    margin: auto;
+    border :none;
+    width: 95%;
+    font-size: 0.9em;
+    min-width: 400px;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+.tablo tr {
+    transition: all .2s ease-in;
+    cursor: pointer;
+}
+.tablo tr:hover {
+    transform : scale(1.02);
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2), -1px -1px 8px rgba(0, 0, 0, 0.2);
+}
+.tablo thead tr {
+    background-color: hsl(216, 66%, 66%);
+  color: #ffffff;
+  text-align: left;
+  font-weight: bold;
+}
+.tablo th , .tablo td {
+    padding: 12px 15px;
+}
+.tablo tbody tr:nth-of-type(even) {
+    background-color: #e4e4e4;
+    width: 100%;
+}
+.tablo tbody tr:nth-last-of-type() {
+    border-bottom: 2px solid hsl(216, 66%, 66%);
+}
+.tablo tbody tr.active-row {
+    font-weight: bold;
+    color: hsl(216, 66%, 66%);
+}
+.tablo2 {
+    border:none ;
+    border-collapse: collapse;
+    margin: auto;
+    width: 95%;
+    font-size: 0.9em;
+    min-width: 400px;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+.tablo2 tr {
+    transition: all .2s ease-in;
+    cursor: pointer;
+}
+.tablo2 tr:hover {
+    transform : scale(1.02);
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2), -1px -1px 8px rgba(0, 0, 0, 0.2);
+}
+.tablo2 thead tr {
+    background-color: hsl(216, 66%, 66%);
+  color: #ffffff;
+  text-align: left;
+  font-weight: bold;
+  height: 35px;
+  padding: 6px;
+}
+.tablo2 th , .tablo td {
+    padding: 12px 15px;
+}
+.tablo2 tbody {
+    background: #ccc;
+}
+.tablo2 tbody tr:nth-of-type(even) {
+    background-color: #e4e4e4;
+    width: 100%;
+}
+.tablo2 tbody tr:nth-last-of-type() {
+    border-bottom: 2px solid hsl(0, 0%, 78%);
+}
+.tablo2 tbody tr.active-row {
+    font-weight: bold;
+    color: #ccc;
+}
+/* tableau des autres pages */
+
+.content-table {
+  border-collapse: collapse;
+  margin: auto;
+  width: 95%;
+  font-size: 0.9em;
+  min-width: 400px;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+.tdate {
+    padding : 5px ;
+    border-radius: 6px;
+    cursor: pointer;
+    
+}
+.content-table tr {
+    transition: all .2s ease-in;
+    cursor: pointer;
+}
+.content-table tr:hover {
+    transform : scale(1.02);
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2), -1px -1px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+.content-table thead tr {
+  background-color: hsl(216, 66%, 66%);
+  color: #ffffff;
+  text-align: left;
+  font-weight: bold;
+}
+
+.content-table th,
+.content-table td {
+  padding: 12px 15px;
+}
+
+.content-table tbody tr:nth-of-type(even) {
+  background-color: #e4e4e4;
+  width: 100%;
+}
+
+
+.content-table tbody tr:last-of-type {
+  border-bottom: 2px solid hsl(216, 66%, 66%);
+
+}
+
+.content-table tbody tr.active-row {
+  font-weight: bold;
+  color: hsl(216, 66%, 66%);
+}
+.add-btn {
+    position: relative;
+    margin-left: -50px;
+    font-weight: bold;
+    color: #fff;
+    width : 100px ;
+    height: 40px;
+    border-radius: 5px;
+    float:right;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+.add-btn:hover {
+    background: rgb(12, 197, 221);
+}
+#status1 {
+    display: block;
+    max-width: 150px;
+    margin: auto;
+    height: 45px ;
+    margin-top: 4px;
+    margin-left: -20px;
+    text-align: center;
+    background:#F5DA81 ;
+    border-radius: 7px;
+   
+}
+#status2 {
+    display: block;
+    height: 45px ;
+    margin: auto;
+    margin-top: 4px;
+    max-width: 150px;
+    margin-left: -20px;
+    text-align: center;
+    background: #FA5858;
+    border-radius: 7px;
+    
+
+
+}
+#status3 {
+    display: block;
+    height: 45px ;
+    margin: auto;
+    max-width: 150px;
+    margin-left: -20px;
+    margin-top: 4px;
+    text-align: center;
+    background: #9FF781;
+    border-radius: 7px;
+    
+
+
+}
+
+/* Styles du formulaire */
+
+.form-area {
+    max-width: 700px;
+    width: 100%;
+    margin: auto;
+    margin-top: 50px;
+    background-color: #F2F2F2;
+    max-width: 700px ;
+    padding: 20px ;
+    margin-bottom: 20px;
+    border-radius: 7px ;
+    box-shadow: 5px 5px 5px #848484;
+}
+
+.form-area .titre {
+    font-size: 25px ;
+    font-weight: 600;
+    position: relative;
+    margin-bottom: 40px;
+    text-align: center;
+
+}
+.form-area .tite::before {
+    content: '';
+    position: absolute;
+    height: 3px;
+    width: 30px;
+    background: hsl(216, 66%, 66%);
+
+}
+.form-area form .usr-det {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin : 20px 0 12px 0 ;
+
+}
+
+form .usr-det .inp-box {
+    margin-bottom:  15px ;
+    width: calc(100% / 2- 20px);
+}
+
+.usr-det .inp-box .detail {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+.usr-det .inp-box input {
+    height : 45px ;
+    width : 100% ;
+    outline : none ;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    padding-left: 15px;
+    font-size: 16px ;
+    border-bottom-width: 3px;
+    transition: all .3s ease;
+}
+
+.usr-det .inp-box input:focus,
+.usr-det .inp-box input:valid {
+
+border-color: hsl(216, 66%, 66%);
+}
+
+form .statut .statut-titre {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+form .statut .type-stat {
+    display :flex ; 
+    width : 80% ;
+    margin : 14px 0 ;
+    justify-content: space-between;
+
+}
+
+.statut .type-stat label {
+   display : flex ;
+   align-items : center ;
+
+}
+
+.statut .type-stat .stat1 {
+    height : 18px ;
+    width : 18px ;
+    background : hsl(216, 66%, 66%);
+    border-radius: 50% ;
+    margin-right:10px  ;
+    border : 5px solid transparent ;
+    transition: all .3s ease;
+}
+
+#st1:checked ~ .type-stat label .un,
+#st2:checked ~ .type-stat label .deux,
+#st3:checked ~ .type-stat label .trois
+ {
+    border-color : hsl(216, 66%, 66%) ;
+    background : white;
+
+
+}
+#sx1:checked ~ .gender label .un,
+#sx2:checked ~ .gender label .deux {
+    border-color : hsl(216, 66%, 66%) ;
+    background : white;
+
+}
+form .sexe .gender {
+    display :flex ; 
+    width : 80% ;
+    margin : 14px 0 ;
+   
+}
+.sexe .gender label {
+    display : flex ;
+    align-items : center ;
+    
+ 
+}
+.sexe .gender #label2 {
+    margin-left: 2em;
+}
+.sexe .gender .sx {
+    height : 18px ;
+    width : 18px ;
+    background : hsl(216, 66%, 66%);
+    border-radius: 50% ;
+    margin-right:10px  ;
+    border : 5px solid transparent ;
+    transition: all .3s ease;
+}
+form .sexe .sx-titre {
+    font-size: 20px;
+    font-weight: 500;
+}
+ 
+form input[type="radio"] {
+    display: none;
+}
+
+form .form-btn {
+    height : 45px ;
+    margin : 45px 0 ;
+}
+form .form-btn input {
+    height :100% ;
+    width:100% ;
+    outline:  none ;
+    color : #fff ;
+    border :none ;
+    font-size: 18px ;
+    font-weight: 600;
+    border-radius: 7px ;
+    letter-spacing: 1px;
+    background : hsl(216, 66%, 66%) ;
+
+}
+
+form .form-btn input:hover {
+ background : rgb(12, 197, 221);
+ cursor: pointer;
+}
+
+@media (max-width : 584px)  {
+    
+.form-area {
+    max-width: 100%;
+}
+}
+/* les boutons pour Service.html */
+.dates {
+    max-width: 800px ;
+    margin: auto;
+}
+.mois {
+    border-radius: 6px ;
+    padding : 10px ;
+    color : #fff ;
+    background-color: hsl(216, 66%, 66%);
+    border :none ;
+    width: 30%;
+    margin: auto;
+    cursor: pointer;
+}
+.services {
+    border-radius: 6px ;
+    width: 30%;
+    color : #fff ;
+    margin: auto;
+    margin-bottom: 50px ;
+    padding: 10px;
+    border :none ;
+    background-color: hsl(216, 66%, 66%);
+    cursor: pointer;
+}
+#m-lbl {
+    font-size: 18px ;
+    font-weight: bolder;
+}
+#s-lbl {
+    font-size: 18px ;
+    font-weight: bolder;
+}
+ #s-lbl {
+    margin-left: 1.5em;
+}
+
+/* Boutons pour patients.html */
+.btn-area {
+    padding-top: 25px ;
+     max-width: 250px;
+     margin : auto ;
+    }
+
+.snd-btn {
+    border : none ;
+    padding-right: 15px;
+    font-weight: bold;
+    color: #fff;
+    padding : 9px ;
+    border-radius: 15px;
+    background-color:hsl(216, 66%, 66%) ;
+}
+.snd-btn:hover {
+  background-color:rgb(12, 197, 221) ;
+  cursor: pointer;
+}
+.sv-btn {
+    border : none ;
+    font-weight: bold;
+    color: #fff;
+    padding : 9px ;
+    border-radius: 15px;
+    background-color:hsl(216, 66%, 66%) ;
+}
+.sv-btn:hover {
+    background-color: rgb(12, 197, 221);
+    cursor: pointer;
+    border : none ;
+}
+.snd-btn + .sv-btn {
+    margin-left: 1em;
+}
+/* liste patients a opérer + les infos */
+.liste-form2 {
+    height : 450px ;
+    display: block;
+    padding : 10px ;
+    max-width: 600px ;
+    margin-top: 100px ;
+   
+}
+.liste-form2 .content-table {
+    width : 100% ;
+}
+
+/* la remarque */
+
+.liste-form2 .remarque {
+    display: flex;
+    position: relative;
+    float: right;
+    max-width: 300px;
+    height : 150px ;
+    
+}
+.liste-form2 .remarque #zone {
+    height: 100px;
+    border-radius: 6px;
+    border: none;
+    padding: 5px;
+    display: block;
+    max-width: 250px ;
+    margin: auto;
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2), -1px -1px 8px rgba(0, 0, 0, 0.2);
+
+    
+}
+/* bouton d'envoi */ 
+ .btn-envoi {
+     display: block;
+     margin-left: 200px ;
+     max-width: 150px;
+     margin-top : 50px ;
+     height : 70px ;
+ }
+ .btn-envoi .env-btn {
+     border-radius: 6px ;
+     border : none ;
+     width : 150px ;
+     height : 50px ;
+     background: hsl(216, 66%, 66%)  ;
+     cursor: pointer;
+ }
+
+ .btn-envoi .env-btn:hover {
+     background-color:rgb(12, 197, 221) ;
+ }
+
+
+
+
+
