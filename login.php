@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,12 +14,27 @@
    <div class="login-form">
     <img src="/imgs/avatar3.jpg" class="avatar">
     <h1>Login</h1>
-    <form action="post">
+    <form action="#" method ="post">
         <input type="text" name="usr" placeholder="Username" >
         <input type="password" name="pwd" placeholder="Password">
-      <a href="/dashboard.html"> <input type="submit" name="sub" value="Login"></a> 
+       <input type="submit" name="sub" value="Login">
 
     </form>
+    <?php
+    require_once ('connexion.php');
+	if(isset($_POST['sub'])){
+		$req='select * from major where username="'.$_POST['usr'].'" and password="'.$_POST['pwd'].'"';
+			$result=$bdd->query($req);
+		while ($ligne=$result->fetch()) {
+            header('location:dashboard.html');
+		}
+
+
+	}
+
+	  ?>
    </div>
+
+  
 </body>
 </html>

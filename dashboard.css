@@ -655,6 +655,8 @@ form .form-btn input:hover {
 }
 /* les boutons pour Service.html */
 .dates {
+    position: relative;
+    margin-top: 150px;
     max-width: 800px ;
     margin: auto;
 }
